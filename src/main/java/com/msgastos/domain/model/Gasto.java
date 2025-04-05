@@ -1,7 +1,6 @@
 package com.msgastos.domain.model;
 
-import com.msgastos.domain.enums.CategoriaGasto;
-import com.msgastos.domain.enums.TipoGasto;
+import com.msgastos.application.dto.CategoriaGastoDTO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,11 +15,10 @@ public class Gasto {
     private String descricao;
     private BigDecimal valor;
     private LocalDate data;
-    private TipoGasto tipo;
-    private CategoriaGasto categoria;
+    private CategoriaGastoDTO categoria;
 
-    public void validarGasto (){
-        if (valor.compareTo(new BigDecimal(0)) < 0){
+    public void validarGasto() {
+        if (valor.compareTo(new BigDecimal(0)) < 0) {
             throw new IllegalArgumentException("Valor do gasto deve ser maior do que zero");
         }
     }

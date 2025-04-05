@@ -1,7 +1,5 @@
 package com.msgastos.infra.entity;
 
-import com.msgastos.domain.enums.CategoriaGasto;
-import com.msgastos.domain.enums.TipoGasto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

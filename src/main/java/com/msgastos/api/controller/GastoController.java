@@ -1,4 +1,4 @@
-package com.msgastos.interf.controller;
+package com.msgastos.api.controller;
 
 import com.msgastos.application.dto.GastoDTO;
 import com.msgastos.application.service.GastoService;
