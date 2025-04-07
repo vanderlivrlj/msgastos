@@ -2,6 +2,7 @@ package com.msgastos.api.controller;
 
 import com.msgastos.application.dto.GastoDTO;
 import com.msgastos.application.service.GastoService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,8 +19,8 @@ public class GastoController {
     }
 
     @PostMapping
-    public void criarGasto(@RequestBody GastoDTO dto) {
-        service.salvarGasto(dto);
+    public ResponseEntity criarGasto(@RequestBody GastoDTO dto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.salvarGasto(dto));
     }
 
     @GetMapping
