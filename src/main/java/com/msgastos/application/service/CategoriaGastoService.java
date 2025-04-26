@@ -7,6 +7,8 @@ import com.msgastos.infra.repository.CategoriaGastoRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CategoriaGastoService {
 
@@ -42,6 +44,11 @@ public class CategoriaGastoService {
     public CategoriaGastoDTO buscarCategoriaGasto(Long id) {
         CategoriaGastoEntity categoria = repository.findById(id).get();
         return categoriaGastoMapper.toModel(categoria);
+    }
+
+    public List<CategoriaGastoDTO> listarCategorias(){
+        List<CategoriaGastoEntity> categorias = repository.findAll();
+        return categoriaGastoMapper.toDTOList(categorias);
     }
 
 }

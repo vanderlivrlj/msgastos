@@ -1,7 +1,6 @@
 package com.msgastos.api.controller;
 
 import com.msgastos.application.dto.CategoriaGastoDTO;
-import com.msgastos.application.dto.GastoDTO;
 import com.msgastos.application.service.CategoriaGastoService;
 import com.msgastos.infra.entity.CategoriaGastoEntity;
 import org.springframework.http.HttpStatus;
@@ -29,6 +28,12 @@ public class CategoriaGastoController {
     public ResponseEntity<CategoriaGastoDTO> listarCategoriaId(@PathVariable("id") Long idCategoria) {
         CategoriaGastoDTO categoriaGastoDTO  = service.buscarCategoriaGasto(idCategoria);
         return ResponseEntity.ok(categoriaGastoDTO);
+    }
+
+    @GetMapping()
+    public ResponseEntity<List<CategoriaGastoDTO>> listarCategorias(){
+        List<CategoriaGastoDTO> categorias = service.listarCategorias();
+        return ResponseEntity.ok(categorias);
     }
 
 
