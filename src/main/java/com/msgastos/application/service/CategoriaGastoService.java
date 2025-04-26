@@ -1,6 +1,7 @@
 package com.msgastos.application.service;
 
 import com.msgastos.application.dto.CategoriaGastoDTO;
+import com.msgastos.application.mapper.CategoriaGastoMapper;
 import com.msgastos.infra.entity.CategoriaGastoEntity;
 import com.msgastos.infra.repository.CategoriaGastoRepository;
 import jakarta.transaction.Transactional;
@@ -10,9 +11,11 @@ import org.springframework.stereotype.Service;
 public class CategoriaGastoService {
 
     private final CategoriaGastoRepository repository;
+    private final CategoriaGastoMapper categoriaGastoMapper;
 
-    public CategoriaGastoService(CategoriaGastoRepository repository) {
+    public CategoriaGastoService(CategoriaGastoRepository repository, CategoriaGastoMapper categoriaGastoMapper) {
         this.repository = repository;
+        this.categoriaGastoMapper = categoriaGastoMapper;
     }
 
     /* Sobre o DDD - Quanto usar o CategoriaGastoEntity ou o CategoriaGasto do domain/model
@@ -34,6 +37,11 @@ public class CategoriaGastoService {
         categoria.setTipo(dto.tipo());
 
         return repository.save(categoria);
+    }
+
+    public CategoriaGastoDTO buscarCategoriaGasto(Long id) {
+        CategoriaGastoEntity categoria = repository.findById(id).get();
+        return categoriaGastoMapper.toModel(categoria);
     }
 
 }
