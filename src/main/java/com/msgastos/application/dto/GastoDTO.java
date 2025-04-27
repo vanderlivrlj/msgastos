@@ -12,4 +12,11 @@ public record GastoDTO(
         LocalDate data,
         Long categoria
 ) {
+    public void validarGasto(BigDecimal valor) {
+        if (valor.compareTo(new BigDecimal(0)) <= 0) {
+            throw new IllegalArgumentException("Valor do gasto deve ser maior do que zero");
+        }
+    }
 }
+
+

@@ -1,6 +1,5 @@
 package com.msgastos.application.service;
 
-import com.msgastos.application.dto.CategoriaGastoDTO;
 import com.msgastos.application.dto.GastoDTO;
 import com.msgastos.application.mapper.GastoMapper;
 import com.msgastos.domain.model.GastoCategoriaDTO;
@@ -31,8 +30,8 @@ public class GastoService {
         GastoEntity entity = new GastoEntity();
 
         CategoriaGastoEntity categoria = categoriaGastoRepository.findById(dto.categoria()).orElseThrow((() -> new RuntimeException("Categoria não encontrada")));
-
         entity.setDescricao(dto.descricao());
+        dto.validarGasto(dto.valor());
         entity.setValor(dto.valor());
         entity.setData(dto.data());
         entity.setCategoria(categoria);
