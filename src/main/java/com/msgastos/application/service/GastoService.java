@@ -1,7 +1,9 @@
 package com.msgastos.application.service;
 
+import com.msgastos.application.dto.CategoriaGastoDTO;
 import com.msgastos.application.dto.GastoDTO;
 import com.msgastos.application.mapper.GastoMapper;
+import com.msgastos.domain.model.GastoCategoriaDTO;
 import com.msgastos.infra.entity.CategoriaGastoEntity;
 import com.msgastos.infra.entity.GastoEntity;
 import com.msgastos.infra.repository.CategoriaGastoRepository;
@@ -37,10 +39,10 @@ public class GastoService {
         return repository.save(entity);
     }
 
-    public List<GastoDTO> listarGastos() {
+    public List<GastoCategoriaDTO> listarGastos() {
 
-        List<GastoEntity> entities = repository.findAll();
-        return gastoMapper.toDTOList(entities);
+        List<GastoCategoriaDTO> categoriaGastoDTOS = repository.listarGastos();
+        return categoriaGastoDTOS;
     }
 
 }

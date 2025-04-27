@@ -2,6 +2,7 @@ package com.msgastos.api.controller;
 
 import com.msgastos.application.dto.GastoDTO;
 import com.msgastos.application.service.GastoService;
+import com.msgastos.domain.model.GastoCategoriaDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,8 +25,8 @@ public class GastoController {
     }
 
     @GetMapping
-    public ResponseEntity<List<GastoDTO>> listarGastos() {
-        List<GastoDTO> dtos = service.listarGastos();
+    public ResponseEntity<List<GastoCategoriaDTO>> listarGastos() {
+        List<GastoCategoriaDTO> dtos = service.listarGastos();
         return ResponseEntity.ok(dtos);
     }
 }
