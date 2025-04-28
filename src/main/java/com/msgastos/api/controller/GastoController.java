@@ -5,6 +5,7 @@ import com.msgastos.application.service.GastoService;
 import com.msgastos.domain.model.GastoCategoriaDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class GastoController {
     }
 
     @PostMapping
-    public ResponseEntity criarGasto(@RequestBody GastoDTO dto) {
+    public ResponseEntity criarGasto(@RequestBody @Validated GastoDTO dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.salvarGasto(dto));
     }
 
