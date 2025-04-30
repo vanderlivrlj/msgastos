@@ -25,6 +25,12 @@ public class GastoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.salvarGasto(dto));
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<GastoCategoriaDTO> listarGastoPorId(@PathVariable Long id) {
+        GastoCategoriaDTO dto = service.listarGastosPorId(id);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
     @GetMapping
     public ResponseEntity<List<GastoCategoriaDTO>> listarGastos() {
         List<GastoCategoriaDTO> dtos = service.listarGastos();

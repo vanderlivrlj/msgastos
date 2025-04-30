@@ -17,6 +17,6 @@ public interface GastoRepository extends JpaRepository<GastoEntity, Long> {
             value = "select g.data, g.descricao, g.valor, c.descricao, c.nome, c.tipo " +
                     "from tb_gasto g inner join tb_categoria_gasto c " +
                     "on g.categoria_id = c.id")
-    List<GastoCategoriaDTO> listarGastos ();
+    List<GastoCategoriaDTO> listarGastos();
 
 }

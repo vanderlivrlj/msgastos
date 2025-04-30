@@ -44,4 +44,9 @@ public class GastoService {
         return categoriaGastoDTOS;
     }
 
+    public GastoCategoriaDTO listarGastosPorId(Long id) {
+        GastoEntity dto = repository.findById(id).get();
+        return gastoMapper.toModel(dto);
+    }
+
 }
